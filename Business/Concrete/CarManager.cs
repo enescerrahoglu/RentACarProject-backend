@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constant;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns;
 using Core.Utilities.Results;
@@ -38,6 +39,16 @@ namespace Business.Concrete
         {
             _carDal.Delete(car);
             return new SuccessResult(Messages.DeleteMessage);
+        }
+
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Car car)
+        {
+            _carDal.Add(car);
+
+
+            _carDal.Delete(car);
+            return new SuccessResult(Messages.TransactionTested);
         }
 
         public IDataResult<List<Car>> GetAll()

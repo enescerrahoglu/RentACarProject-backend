@@ -18,6 +18,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         //hangi class hangi tabloya denk gelir onun belirlenmesi
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Card> Cards { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<User> Users { get; set; }

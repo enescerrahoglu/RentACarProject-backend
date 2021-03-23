@@ -38,10 +38,14 @@ namespace Business.Aspect.Autofac
             builder.RegisterType<CarImageManager>().As<ICarImageService>().SingleInstance();
             builder.RegisterType<EfCarImageDal>().As<ICarImageDal>().SingleInstance();
 
+            builder.RegisterType<OperationManager>().As<IOperationService>().SingleInstance();
+            builder.RegisterType<EfOperationDal>().As<IOperationDal>().SingleInstance();
+
+            builder.RegisterType<CardManager>().As<ICardService>().SingleInstance();
+            builder.RegisterType<EfCardDal>().As<ICardDal>().SingleInstance();
+
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();
-
-
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
